@@ -1,0 +1,19 @@
+<h4>Usuários</h4><br>
+
+<%= link_to("Novo Usuario", new_admin_user_path, class: "btn btn-success mb-4") %>
+
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+    <% end %>
+  </tbody>
+</table>

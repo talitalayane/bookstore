@@ -2,7 +2,7 @@
 Desafio
 Uma biblioteca de uma grande cidade está com dificuldades de organizar as reservas de seus livros, hoje todo o controle é feito manualmente, para saber os livros mais reservados levaria um tempo de pesquisa nos livros de reserva. Então a biblioteca teve uma ideia de montar um sistema de reservas, com o requisitos:
 
-Administrador (bibliotecário) pode:
+*Administrador (bibliotecário) pode:
 Cadastrar novos livros;
 Pesquisar todos os livros, podendo filtrar por cada detalhe e retorno com paginação;
 Editar os livros existentes;
@@ -12,7 +12,7 @@ Criar uma nova reserva, entre livro e usuário comum;
 Pesquisar todas as reservas, podendo filtrar por cada detalhe e retorno com paginação;
 Finalizar uma reserva.
 
-Usuário pode:
+*Usuário pode:
 Visualizar todos os livros, podendo filtrar por cada detalhe e retorno com paginação;
 Criar uma reserva;
 Visualizar suas reservas, podendo filtrar por cada detalhe e retorno com paginação.

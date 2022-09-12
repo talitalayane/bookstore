@@ -1,6 +1,4 @@
 class User::HomeController < UserController
 
-  def index
-  end
-
+  def index;end
 end

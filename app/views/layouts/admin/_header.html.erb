@@ -5,14 +5,14 @@
         <%= link_to("Home", admin_root_path, class: "nav-link") %>
       </li>
       </li>
-      <li class="nav-item" <%= current_page?(admin_admins_path)? "active" : "" %>">
+      <li class="nav-item <%= current_page?(admin_admins_path)? "active" : "" %>">
         <%= link_to("Administradores", admin_admins_path, class: "nav-link") %>
       </li>
-      <li class="nav-item" <%= current_page?(admin_users_path)? "active" : "" %>">
+      <li class="nav-item <%= current_page?(admin_users_path)? "active" : "" %>">
         <%= link_to("Usuários", admin_users_path, class: "nav-link") %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color:#825DCD;"href="#">Livros</a>
+      <li class="nav-item <%= current_page?(admin_books_path)? "active" : ""  %>">
+        <%= link_to("Livros", admin_books_path, class: "nav-link") %>
       </li>
     </ul>
     <div class="nav-item d-flex">

@@ -1,8 +1,8 @@
-class Admin::BooksController < AdminController
-  before_action :set_book, only: [:edit, :update, :destroy]
+class BookController < ApplicationController
+before_action :set_book, only: [:edit, :update, :destroy]
 
   def index
-    @books = Book.order(id: :desc)
+    @books = Book.all
   end
 
   def new
@@ -11,12 +11,6 @@ class Admin::BooksController < AdminController
 
   def create
     @book = Book.new(form_params)
-
-    if @book.save
-      redirect_to admin_books_path
-    else
-      render :new
-    end
   end
 
   def edit
@@ -24,17 +18,12 @@ class Admin::BooksController < AdminController
 
   def update
     params = form_params.to_h
-
-    if @book.update(params)
-      redirect_to admin_books_path
-    else
-      render :edit
-    end
+    @book.update(params)
   end
 
   def destroy
     @book.destroy
-    redirect_to admin_books_path
+    redirect_to admin_book_index_path
   end
 
   private

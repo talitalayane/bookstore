@@ -6,14 +6,14 @@ Rails.application.routes.draw do
     root to: "home#index"
     resources :admins
     resources :users
-    resources :book
-    resources :reservation
+    resources :books
+    resources :reservations
   end
 
     root to: "user/home#index"
 
   namespace :user do
     resources :book, only: [:index, :show]
-    resources :reservation
+    resources :reservations
   end
 end

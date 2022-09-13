@@ -4,11 +4,11 @@
       <li class="nav-item <%= current_page?(root_path)? "active" : "" %>">
         <%= link_to("Home", root_path, class: "nav-link") %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color:#825DCD;"href="#">Livros</a>
+      <li class="nav-item <%= current_page?(user_books_path)? "active" : "" %>">
+        <%= link_to("Livros", user_books_path, class: "nav-link") %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" style="color:#825DCD;"href="#">Minhas Reservas</a>
+      <li class="nav-item<%= current_page?(user_reservations_path)? "active" : "" %>">
+        <%= link_to("Minhas Reservas", user_reservations_path, class: "nav-link") %>
       </li>
     </ul>
     <div class="nav-item d-flex">

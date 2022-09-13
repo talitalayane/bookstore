@@ -13,7 +13,7 @@ class Admin::UsersController < AdminController
     @user = User.new(form_params)
 
     if @user.save
-      redirect_to user_users_path
+      redirect_to admin_users_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::UsersController < AdminController
     params = params.except!(:password, :password_confirmation) if params[:password].blank?
 
     if @user.update(params)
-      redirect_to user_users_path
+      redirect_to admin_users_path
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::UsersController < AdminController
 
   def destroy
     @user.destroy
-    redirect_to user_users_path
+    redirect_to admin_users_path
   end
 
   private

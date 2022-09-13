@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     root to: "user/home#index"
 
   namespace :user do
-    resources :book, only: [:index, :show]
+    resources :books, only: [:index, :show]
     resources :reservations
   end
 end

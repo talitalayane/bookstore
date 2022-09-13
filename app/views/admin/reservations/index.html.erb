@@ -1,0 +1,28 @@
+<h4>Gestão das reservas</h4><br>
+
+<%= link_to("Fazer nova Reserva", new_admin_reservation_path, class: "btn btn-success mb-4") %>
+
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Reserva</th>
+      <th scope="col">Status</th>
+      <th scope="col">Usuário</th>
+      <th scope="col">Livro</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @reservations.each do |r| %>
+    <tr>
+      <td><%= r.id %></td>
+      <td><%= r.status %></td>
+      <td><%= r.user_id %></td>
+      <td><%= r.book_id %></td>
+      <td><%= link_to "Editar", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm" %></td>
+      <td><%= link_to "Deletar Reserva", admin_reservation_path(reservation), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
+    <% end %>
+  </tbody>
+</table>

@@ -14,6 +14,9 @@
       <li class="nav-item <%= current_page?(admin_books_path)? "active" : ""  %>">
         <%= link_to("Livros", admin_books_path, class: "nav-link") %>
       </li>
+      <li class="nav-item <%= current_page?(admin_reservations_path)? "active" : ""  %>">
+        <%= link_to("Reservas", admin_reservations_path, class: "nav-link") %>
+      </li>
     </ul>
     <div class="nav-item d-flex">
       <ul class="navbar-nav">

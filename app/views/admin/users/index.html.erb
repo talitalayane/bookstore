@@ -1,12 +1,15 @@
-<h4>Usuários</h4><br>
+<h4>Gestão dos Usuários</h4><br>
 
-<%= link_to("Novo Usuario", new_admin_user_path, class: "btn btn-success mb-4") %>
+<%= link_to("Cadastrar Usuário", new_admin_user_path, class: "btn btn-success mb-4") %>
 
 <table class="table table-light">
   <thead>
     <tr>
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
     </tr>
   </thead>
   <tbody>
@@ -14,6 +17,8 @@
     <tr>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
+      <td><%= link_to "Editar", edit_admin_user_path(user), class: "btn btn-warning btn-sm" %></td>
+      <td><%= link_to "Deletar", admin_user_path(user), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
     <% end %>
   </tbody>
 </table>

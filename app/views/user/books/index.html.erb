@@ -1,0 +1,24 @@
+<h4>Livros</h4><br>
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">Autor</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Criado em</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.name %></td>
+      <td><%= book.author %></td>
+      <td><%= book.category %></td>
+      <td><%= book.created_at%></td>
+      <td>Reservar</td>
+    <% end %>
+  </tbody>
+</table>

@@ -13,7 +13,7 @@ class Admin::ReservationsController < AdminController
     @reservation = Reservation.new(form_params)
 
     if @reservation.save
-      redirect_to admin_admins_path
+      redirect_to admin_reservations_path
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::ReservationsController < AdminController
     params = params.except!(:password, :password_confirmation) if params[:password].blank?
 
     if @reservation.update(params)
-      redirect_to admin_admins_path
+      redirect_to admin_reservations_path
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::ReservationsController < AdminController
 
   def destroy
     @reservation.destroy
-    redirect_to admin_admins_path
+    redirect_to admin_reservations_path
   end
 
   private

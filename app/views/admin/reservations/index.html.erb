@@ -15,14 +15,14 @@
     </tr>
   </thead>
   <tbody>
-    <% @reservations.each do |r| %>
+    <% @reservations.each do |reservation| %>
     <tr>
-      <td><%= r.id %></td>
-      <td><%= r.status %></td>
-      <td><%= r.user_id %></td>
-      <td><%= r.book_id %></td>
-      <td><%= link_to "Editar", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm" %></td>
-      <td><%= link_to "Deletar Reserva", admin_reservation_path(reservation), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm" %></td>
+      <td><%= reservation.id %></td>
+      <td><%= reservation.status %></td>
+      <td><%= User.find(reservation.user_id).name %></td>
+      <td><%= Book.find(reservation.book_id).name %></td>
+      <%# <td><%= link_to "Editar", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm" %></td>
+      <%# <td><%= link_to "Deletar Reserva", admin_reservation_path(reservation), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm"%></td>
     <% end %>
   </tbody>
 </table>

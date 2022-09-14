@@ -1,5 +1,5 @@
 class Admin::ReservationsController < AdminController
-  before_action :set_reservation, only: [:edit, :update, :destroy]
+  before_action :set_reservation, only: [:edit, :update]
 
   def index
     @reservations = Reservation.order(id: :desc)
@@ -24,7 +24,6 @@ class Admin::ReservationsController < AdminController
 
   def update
     params = form_params.to_h
-    params = params.except!(:password, :password_confirmation) if params[:password].blank?
 
     if @reservation.update(params)
       redirect_to admin_reservations_path
@@ -33,15 +32,10 @@ class Admin::ReservationsController < AdminController
     end
   end
 
-  def destroy
-    @reservation.destroy
-    redirect_to admin_reservations_path
-  end
-
   private
 
   def form_params
-    params.require(:reservation).permit(:statusß)
+    params.require(:reservation).permit(:status, :user_id, :book_id)
   end
 
   def set_reservation

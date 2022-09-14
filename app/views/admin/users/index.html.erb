@@ -5,6 +5,7 @@
 <table class="table table-light">
   <thead>
     <tr>
+      <th scope="col">Registro</th>
       <th scope="col">Nome</th>
       <th scope="col">Email</th>
       <th scope="col"></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @users.each do |user| %>
     <tr>
+      <td><%= user.id %></td>
       <td><%= user.name %></td>
       <td><%= user.email %></td>
       <td><%= link_to "Editar", edit_admin_user_path(user), class: "btn btn-warning btn-sm" %></td>

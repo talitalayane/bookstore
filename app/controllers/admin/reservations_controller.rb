@@ -10,25 +10,28 @@ class Admin::ReservationsController < AdminController
   end
 
   def create
-    @reservation = Reservation.new(form_params)
-
-    if @reservation.save
-      redirect_to admin_reservations_path
-    else
-      render :new
+    ActiveRecord::Base.transaction do
+      @reservation = Reservation.new( :book_id => form_params[:book_id],
+                                      :user_id => form_params[:user_id],
+                                      :status => true )
+      if @reservation.save
+        redirect_to admin_reservations_path
+      else
+        render :new
+      end
     end
+  end
+
+  def show
   end
 
   def edit
   end
 
   def update
-    params = form_params.to_h
-
-    if @reservation.update(params)
+    ActiveRecord::Base.transaction do
+      @reservation = Reservation.update( :status => false )
       redirect_to admin_reservations_path
-    else
-      render :edit
     end
   end
 

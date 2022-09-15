@@ -2,27 +2,50 @@
 
 <%= link_to("Fazer nova Reserva", new_admin_reservation_path, class: "btn btn-success mb-4") %>
 
-<table class="table table-light">
-  <thead>
-    <tr>
-      <th scope="col">Reserva</th>
-      <th scope="col">Status</th>
-      <th scope="col">Usuário</th>
-      <th scope="col">Livro</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+<div>
+  <a> Reservas ativas </a>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">Reserva</th>
+        <th scope="col">Usuário</th>
+        <th scope="col">Livro</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <% if(reservation.status == true) %>
+        <td><%= reservation.id %></td>
+        <td><%= User.find(reservation.user_id).name %></td>
+        <td><%= Book.find(reservation.book_id).name %></td>
+        <td><%= link_to "Devolver Livro", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm"%></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-    </tr>
-  </thead>
-  <tbody>
-    <% @reservations.each do |reservation| %>
-    <tr>
-      <td><%= reservation.id %></td>
-      <td><%= reservation.status %></td>
-      <td><%= User.find(reservation.user_id).name %></td>
-      <td><%= Book.find(reservation.book_id).name %></td>
-      <%# <td><%= link_to "Editar", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm" %></td>
-      <%# <td><%= link_to "Deletar Reserva", admin_reservation_path(reservation), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger btn-sm"%></td>
-    <% end %>
-  </tbody>
-</table>
+<div>
+  <a> Reservas finalizadas </a>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">Reserva</th>
+        <th scope="col">Usuário</th>
+        <th scope="col">Livro</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <% if(reservation.status == false) %>
+        <td><%= reservation.id %></td>
+        <td><%= User.find(reservation.user_id).name %></td>
+        <td><%= Book.find(reservation.book_id).name %></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</ßdiv>

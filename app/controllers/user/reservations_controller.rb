@@ -2,7 +2,7 @@ class User::ReservationsController < UserController
   before_action :set_reservation, only: [:edit, :update, :destroy]
 
   def index
-    @reservations = Reservation.order(id: :desc)
+    @reservations = current_user.reservations.all
   end
 
   def new
@@ -10,30 +10,26 @@ class User::ReservationsController < UserController
   end
 
   def create
-    @reservation = Reservation.new(form_params)
-
-    if @reservation.save
-      redirect_to user_reservations_path
-    else
-      render :new
+    ActiveRecord::Base.transaction do
+      @reservation = Reservation.new( :book_id => form_params[:book_id],
+                                      :user_id => current_user.id,
+                                      :status => true )
+      if @reservation.save
+        redirect_to admin_reservations_path
+      else
+        render :new
+      end
     end
   end
 
   def edit; end
 
+
   def update
-    params = form_params.to_h
-
-    if @reservation.update(params)
-      redirect_to user_reservations_path
-    else
-      render :edit
+    ActiveRecord::Base.transaction do
+      @reservation = Reservation.update( :status => false )
+      redirect_to admin_reservations_path
     end
-  end
-
-  def destroy
-    @reservation.destroy
-    redirect_to user_reservations_path
   end
 
   private

@@ -1,1 +1,45 @@
 <h2> Minhas Reservas</h2>
+
+<div>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">Reserva</th>
+        <th scope="col">Livro</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <% if(reservation.status == true) %>
+          <td><%= reservation.id %></td>
+          <td><%= Book.find(reservation.book_id).name %></td>
+          <td><%= link_to "Devolver Livro", edit_user_reservation_path(reservation), class: "btn btn-warning btn-sm"%></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<div>
+
+<div>
+  <a> Reservas finalizadas</a>
+  <table class="table table-light">
+    <thead>
+      <tr>
+        <th scope="col">Reserva</th>
+        <th scope="col">Livro</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+      <tr>
+        <% if(reservation.status == false) %>
+          <td><%= reservation.id %></td>
+          <td><%= Book.find(reservation.book_id).name %></td>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+<div>

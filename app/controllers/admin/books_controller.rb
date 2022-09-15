@@ -13,7 +13,7 @@ class Admin::BooksController < AdminController
     @book = Book.new(form_params)
 
     if @book.save
-      redirect_to admin_books_path
+      redirect_to new_admin_book_path
     else
       render :new
     end

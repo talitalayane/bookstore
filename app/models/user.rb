@@ -6,5 +6,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
-  has_many :reservation
+  has_many :reservations
+  has_many :books, through: :reservation
 end

@@ -29,9 +29,11 @@ class Admin::ReservationsController < AdminController
   end
 
   def update
-    ActiveRecord::Base.transaction do
-      @reservation = Reservation.update( :status => true )
+
+    if @reservation.update(params)
       redirect_to admin_reservations_path
+    else
+      render :edit
     end
   end
 

@@ -1,0 +1,17 @@
+<div class="card" style="background-color:#f6f6f6;">
+  <div class="card-body">
+    <%= form_with(model: [:user, reservation], local: true) do |f| %>
+      <%= render "layouts/form_errors", record: reservation %>
+      <div class="form-group">
+        <label>Registro do Usuário</label>
+        <%= f.text_field :user_id, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>Registro do Livro</label>
+        <%= f.text_field :book_id, class: "form-control" %>
+      </div>
+      <button type="submit" class="btn btn-primary">Reservar</button>
+      <%= link_to "Voltar", admin_books_path, class: "btn btn-secondary ml-3" %>
+    <% end %>
+  </div>
+</div>

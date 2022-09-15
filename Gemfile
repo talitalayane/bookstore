@@ -52,3 +52,5 @@ gem "devise"
 gem 'rspec-rails', '~> 4.0.1'
 
 gem 'simple_form'
+
+gem "pg_search"

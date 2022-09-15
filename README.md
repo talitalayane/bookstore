@@ -1,5 +1,5 @@
 # README
-Desafio
+Desafio\ Objetivo
 Uma biblioteca de uma grande cidade está com dificuldades de organizar as reservas de seus livros, hoje todo o controle é feito manualmente, para saber os livros mais reservados levaria um tempo de pesquisa nos livros de reserva. Então a biblioteca teve uma ideia de montar um sistema de reservas, com o requisitos:
 
 *Administrador (bibliotecário) pode:
@@ -36,3 +36,9 @@ Data da reserva
 Data de devolução
 Status da reserva
 Seu papel será montar todo o Backend/Frontend para esse sistema, garantindo a cobertura de testes e integridade da aplicação, utilizando Ruby on Rails e PostgreSQL para persistir os dados.
+---------------------------------------------------------------
+Usurarios para teste
+
+-- Usuário comum -- email: Talita@user.com, password: 123456
+
+-- Admin -- email: admin@bookstore.com, password: 123456

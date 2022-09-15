@@ -16,7 +16,7 @@
         <% if(reservation.status == true) %>
           <td><%= reservation.id %></td>
           <td><%= Book.find(reservation.book_id).name %></td>
-          <td><%= link_to "Devolver Livro", edit_user_reservation_path(reservation), class: "btn btn-warning btn-sm"%></td>
+          <td><%= link_to "Devolver Livro", edit_user_reservation_path(reservation.id), class: "btn btn-warning btn-sm"%></td>
         <% end %>
       <% end %>
     </tbody>

@@ -20,7 +20,7 @@
         <td><%= reservation.id %></td>
         <td><%= User.find(reservation.user_id).name %></td>
         <td><%= Book.find(reservation.book_id).name %></td>
-        <td><%= link_to "Devolver Livro", edit_admin_reservation_path(reservation), class: "btn btn-warning btn-sm"%></td>
+        <td><%= link_to "Devolver Livro", edit_admin_reservation_path(reservation.id), class: "btn btn-warning btn-sm"%></td>
         <% end %>
       <% end %>
     </tbody>

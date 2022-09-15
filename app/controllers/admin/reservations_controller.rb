@@ -30,7 +30,7 @@ class Admin::ReservationsController < AdminController
 
   def update
     ActiveRecord::Base.transaction do
-      @reservation = Reservation.update( :status => false )
+      @reservation = Reservation.update( :status => true )
       redirect_to admin_reservations_path
     end
   end

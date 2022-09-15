@@ -3,6 +3,10 @@ class Admin::BooksController < AdminController
 
   def index
     @books = Book.order(id: :desc)
+
+    if params[:query].present?
+      @books = Book.global_search(params[:query])
+    end
   end
 
   def new

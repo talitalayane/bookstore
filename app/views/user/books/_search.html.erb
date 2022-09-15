@@ -1,0 +1,10 @@
+<%= form_tag user_books_path, class: "row g-3", method: :get do %>
+  <div class="col-auto d-flex  justify-content-between w-50 p-2">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "flex-grow-1 input-text",
+      placeholder: "Pesquise aqui seu livro"
+    %>
+    <%= submit_tag "Pesquisar", class: "ml-2 btn-search" %>
+  </div>
+<% end %>

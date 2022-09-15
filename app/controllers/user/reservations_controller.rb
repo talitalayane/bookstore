@@ -1,9 +1,8 @@
 class User::ReservationsController < UserController
-  before_action :set_reservation, only: [:edit, :update, :destroy]
+  before_action :set_reservation, only: [:edit, :update]
 
   def index
-    # @reservations = current_user.reservations.all
-    @reservations = Reservation.order(id: :desc)
+    @reservations = current_user.reservations.all
   end
 
   def new

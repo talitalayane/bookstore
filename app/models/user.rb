@@ -8,4 +8,11 @@ class User < ApplicationRecord
 
   has_many :reservations
   has_many :books, through: :reservation
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [ :name, :email],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

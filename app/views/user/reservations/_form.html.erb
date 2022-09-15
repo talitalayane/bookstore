@@ -3,7 +3,7 @@
     <%= form_with(model: [:user, reservation], local: true) do |f| %>
       <%= render "layouts/form_errors", record: reservation %>
       <div class="form-group">
-        <label>Registro do Usuário</label>
+        <label>Registro do Usuário| Digite seu número de resgistro</label>
         <%= f.text_field :user_id, class: "form-control" %>
       </div>
       <div class="form-group">

@@ -1,44 +1,67 @@
-# README
-Desafio\ Objetivo
-Uma biblioteca de uma grande cidade está com dificuldades de organizar as reservas de seus livros, hoje todo o controle é feito manualmente, para saber os livros mais reservados levaria um tempo de pesquisa nos livros de reserva. Então a biblioteca teve uma ideia de montar um sistema de reservas, com o requisitos:
+# Bookstore
 
-*Administrador (bibliotecário) pode:
-Cadastrar novos livros;
-Pesquisar todos os livros, podendo filtrar por cada detalhe e retorno com paginação;
-Editar os livros existentes;
-Remover os livros existentes;
-Cadastrar novos usuários, sendo comum ou novos administradores;
-Criar uma nova reserva, entre livro e usuário comum;
-Pesquisar todas as reservas, podendo filtrar por cada detalhe e retorno com paginação;
-Finalizar uma reserva.
+## Visão geral
+Bookstore é um sistema monolítico em Ruby on Rails para gerenciamento de livros e reservas. O projeto atende dois perfis:
 
-*Usuário pode:
-Visualizar todos os livros, podendo filtrar por cada detalhe e retorno com paginação;
-Criar uma reserva;
-Visualizar suas reservas, podendo filtrar por cada detalhe e retorno com paginação.
+- Admin: cadastra livros e usuários, gerencia reservas e devoluções.
+- Usuário comum: visualiza livros, pesquisa e cria reservas.
 
-*O usuário deve possuir os detalhes:
-Nome
-Email
-Senha
-Permissão
+O objetivo atual é manter a aplicação Rails funcionando em ERB, corrigir bugs existentes e iniciar a migração progressiva do front-end para React.
 
-*Os livros devem possuir os detalhes:
-Titulo
-Autor
-Categoria
-Data de cadastro e alteração
+## Tecnologias principais
+- Ruby 3.1.0
+- Rails 6.1.7
+- PostgreSQL
+- Webpacker 5
+- React (integração incremental planejada)
+- Devise para autenticação
+- RSpec para testes
+- PgSearch para busca full-text
 
-*As reservas devem possuir os detalhes:
-Livro
-Usuário
-Data da reserva
-Data de devolução
-Status da reserva
-Seu papel será montar todo o Backend/Frontend para esse sistema, garantindo a cobertura de testes e integridade da aplicação, utilizando Ruby on Rails e PostgreSQL para persistir os dados.
----------------------------------------------------------------
-Usurarios para teste
+## Status atual
+- Backend: monolito Rails 6.1 com autenticação de `User` e `Admin`.
+- Front-end: views ERB tradicionais, com Webpacker para assets JavaScript.
+- Busca: `Book.global_search` já existe para livros; busca de usuários precisa correção.
+- Testes: RSpec instalado; documentação de testes será adicionada em `docs/test-plan.md`.
+- Migração para React será feita aos poucos, começando por componentes menores como header e busca.
 
--- Usuário comum -- email: Talita@user.com, password: 123456
+## Como rodar o projeto
+1. Instale dependências Ruby e Node:
+   ```bash
+   bundle install
+   yarn install
+   ```
+2. Configure o banco de dados:
+   ```bash
+   rails db:create
+   rails db:migrate
+   rails db:seed
+   ```
+3. Inicie o servidor Rails:
+   ```bash
+   rails server
+   ```
+4. Em outro terminal, se necessário, inicie o Webpacker:
+   ```bash
+   ./bin/webpack-dev-server
+   ```
 
--- Admin -- email: admin@bookstore.com, password: 123456
+## Comandos de teste
+- Executar specs RSpec:
+  ```bash
+  bundle exec rspec
+  ```
+
+- Verificar links de documentação:
+  - `docs/roadmap.md` — plano de evolução e cronograma
+  - `docs/test-plan.md` — caderno de testes manuais
+
+## Usuários de teste
+- Usuário comum:
+  - email: `Talita@user.com`
+  - password: `123456`
+
+- Admin:
+  - email: `admin@bookstore.com`
+  - password: `123456`
+

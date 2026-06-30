@@ -5,9 +5,8 @@
   <table class="table table-light">
     <thead>
       <tr>
-        <th scope="col">Reserva</th>
+        <th scope="col">Número da Reserva</th>
         <th scope="col">Livro</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +15,6 @@
         <% if(reservation.status == true) %>
           <td><%= reservation.id %></td>
           <td><%= Book.find(reservation.book_id).name %></td>
-          <td><%= link_to "Devolver Livro", edit_user_reservation_path(reservation.id), class: "btn btn-warning btn-sm"%></td>
         <% end %>
       <% end %>
     </tbody>
@@ -24,13 +22,12 @@
 <div>
 
 <div>
-  <a> Reservas finalizadas</a>
+  <h3><a> Reservas finalizadas</a></h3>
   <table class="table table-light">
     <thead>
       <tr>
-        <th scope="col">Reserva</th>
+        <th scope="col">Número da Reserva</th>
         <th scope="col">Livro</th>
-        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>

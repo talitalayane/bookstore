@@ -6,19 +6,21 @@ class User::ReservationsController < UserController
   end
 
   def new
-    @reservation = Reservation.new
+    @reservation = Reservation.new(user: current_user)
   end
 
   def create
-    ActiveRecord::Base.transaction do
-      @reservation = Reservation.new( :book_id => form_params[:book_id],
-                                      :user_id => form_params[:user_id],
-                                      :status => true )
-      if @reservation.save
-        redirect_to user_reservations_path
-      else
-        render :new
-      end
+    reservation_attributes = reservation_params.to_h
+    @reservation = Reservation.new(
+      book_id: reservation_attributes[:book_id].to_s,
+      user_id: current_user.id.to_s,
+      status: true
+    )
+
+    if @reservation.save
+      redirect_to user_reservations_path
+    else
+      render :new
     end
   end
 
@@ -35,7 +37,11 @@ class User::ReservationsController < UserController
   private
 
   def form_params
-    params.require(:reservation).permit(:status)
+    params.require(:reservation).permit(:book_id, :status)
+  end
+
+  def reservation_params
+    form_params
   end
 
   def set_reservation

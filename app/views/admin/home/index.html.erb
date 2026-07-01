@@ -1,1 +1,48 @@
-<h2>Seja bem vindo ao seu painel administrativo!</h2>
+<div class="row mt-5">
+  <div class="col-md-8">
+    <h2>Bem-vindo ao painel administrativo</h2>
+    <p class="lead">Aqui você pode gerenciar livros, usuários, administradores e reservas.</p>
+  </div>
+  <div class="col-md-4 text-right">
+    <%= link_to "← Voltar à Home", root_path, class: "btn btn-secondary" %>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Livros</h5>
+        <p class="card-text">Gerenciar acervo.</p>
+        <%= link_to "Ir para Livros", admin_books_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Usuários</h5>
+        <p class="card-text">Gerenciar usuários.</p>
+        <%= link_to "Ir para Usuários", admin_users_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Reservas</h5>
+        <p class="card-text">Gerenciar reservas.</p>
+        <%= link_to "Ir para Reservas", admin_reservations_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Admins</h5>
+        <p class="card-text">Gerenciar administradores.</p>
+        <%= link_to "Ir para Admins", admin_admins_path, class: "btn btn-primary btn-sm" %>
+      </div>
+    </div>
+  </div>
+</div>

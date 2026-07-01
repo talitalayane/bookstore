@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe Reservation, type: :model do
   it "reservation is valid" do
-    reservation = Reservation.new(user_id: "4", book_id: "5", status: true)
+    user = User.create!(name: "Alice", email: "alice@example.com", password: "123456")
+    book = Book.create!(name: "Dom Casmurro", author: "Machado de Assis", category: "Romance")
+    reservation = Reservation.new(user_id: user.id.to_s, book_id: book.id.to_s, status: true)
 
-    expect(reservation.user_id).to eql "4"
-    expect(reservation.book_id).to eql "5"
+    expect(reservation.user_id).to eql user.id.to_s
+    expect(reservation.book_id).to eql book.id.to_s
     expect(reservation.status).to eql true
     expect(reservation).to be_valid
   end

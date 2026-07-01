@@ -31,9 +31,20 @@
         <% end %>
 
         <% if resource_name == :user %>
-          <%= link_to new_user_registration_path, class: "d-flex justify-content-center align-items-center mt-4" do %>
-            Cadastrar
-          <% end %>
+          <div class="d-flex justify-content-center align-items-center mt-4">
+            <%= link_to new_admin_session_path, class: "btn btn-outline-secondary mr-2" do %>
+              Acessar Painel Admin
+            <% end %>
+            <%= link_to new_user_registration_path, class: "btn btn-link" do %>
+              Cadastrar
+            <% end %>
+          </div>
+        <% elsif resource_name == :admin %>
+          <div class="d-flex justify-content-center align-items-center mt-4">
+            <%= link_to new_user_session_path, class: "btn btn-outline-secondary" do %>
+              Voltar para Login de Usuário
+            <% end %>
+          </div>
         <% end %>
       </div>
     </div>

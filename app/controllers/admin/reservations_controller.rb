@@ -29,8 +29,7 @@ class Admin::ReservationsController < AdminController
   end
 
   def update
-
-    if @reservation.update(params)
+    if @reservation.update(form_params)
       redirect_to admin_reservations_path
     else
       render :edit

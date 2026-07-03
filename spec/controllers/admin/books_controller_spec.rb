@@ -6,9 +6,19 @@ RSpec.describe Admin::BooksController, type: :controller do
     allow(controller).to receive(:current_admin).and_return(Admin.new(id: 1, name: 'Admin'))
   end
 
+  describe 'POST #create' do
+    it 'does not create a book without a category' do
+      post :create, params: { book: { name: 'Novo Livro', author: 'Autor', stock: 2, category: nil } }
+
+      expect(response.status).to eq(200)
+      book = controller.instance_variable_get(:@book)
+      expect(book.errors[:category]).to include("can't be blank")
+    end
+  end
+
   describe 'PATCH #update' do
     it 'updates the stock attribute' do
-      book = Book.create!(name: 'Teste', author: 'Autor', category: 'C', stock: 0)
+      book = Book.create!(name: 'Teste', author: 'Autor', category: 'Romance', stock: 0)
 
       patch :update, params: { id: book.id, book: { stock: 5 } }
 

@@ -15,6 +15,7 @@
       <th scope="col">Nome</th>
       <th scope="col">Autor</th>
       <th scope="col">Categoria</th>
+      <th scope="col">Estoque</th>
       <th scope="col">Criado em</th>
       <th scope="col">Atualizado em</th>
       <th scope="col"></th>
@@ -29,6 +30,7 @@
       <td><%= book.name %></td>
       <td><%= book.author %></td>
       <td><%= book.category %></td>
+      <td><%= book.stock %></td>
       <td><%= book.created_at%></td>
       <td><%= book.updated_at%></td>
       <td><%= link_to "Editar", edit_admin_book_path(book), class: "btn btn-warning btn-sm" %></td>

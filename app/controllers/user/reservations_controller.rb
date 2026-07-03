@@ -10,14 +10,39 @@ class User::ReservationsController < UserController
   end
 
   def create
-    reservation_attributes = reservation_params.to_h
-    @reservation = Reservation.new(
-      book_id: reservation_attributes[:book_id].to_s,
-      user_id: current_user.id.to_s,
-      status: true
-    )
+    reservation_attributes = reservation_params
+    book_id = reservation_attributes[:book_id].to_i
 
-    if @reservation.save
+    book = Book.lock.find_by(id: book_id)
+    unless book
+      @reservation = Reservation.new
+      @reservation.errors.add(:base, "Livro não encontrado")
+      render :new and return
+    end
+
+    if book.stock.to_i <= 0
+      @reservation = Reservation.new
+      @reservation.errors.add(:base, "Livro sem estoque disponível")
+      render :new and return
+    end
+
+    created = false
+    ActiveRecord::Base.transaction do
+      book.decrement!(:stock)
+      @reservation = Reservation.new(
+        book_id: book.id.to_s,
+        user_id: current_user.id.to_s,
+        status: true
+      )
+
+      if @reservation.save
+        created = true
+      else
+        raise ActiveRecord::Rollback
+      end
+    end
+
+    if created
       redirect_to user_reservations_path
     else
       render :new

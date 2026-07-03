@@ -14,6 +14,10 @@
         <label>Categoria</label>
         <%= f.text_field :category, class: "form-control" %>
       </div>
+      <div class="form-group">
+        <label>Estoque</label>
+        <%= f.number_field :stock, in: 0..99999, class: "form-control", value: (book.stock || 0) %>
+      </div>
       <button type="submit" class="btn btn-primary">Salvar</button>
       <%= link_to "Voltar", admin_books_path, class: "btn btn-secondary ml-3" %>
     <% end %>

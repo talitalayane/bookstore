@@ -27,9 +27,12 @@ class Admin::BooksController < AdminController
   end
 
   def update
-    params = form_params.to_h
+    attributes = form_params.to_h
+    if attributes.key?("stock")
+      attributes["stock"] = attributes["stock"].to_i
+    end
 
-    if @book.update(params)
+    if @book.update(attributes)
       redirect_to admin_books_path
     else
       render :edit
@@ -44,7 +47,7 @@ class Admin::BooksController < AdminController
   private
 
   def form_params
-    params.require(:book).permit(:name, :author, :category)
+    params.require(:book).permit(:name, :author, :category, :stock)
   end
 
   def set_book

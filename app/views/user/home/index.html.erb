@@ -1,9 +1,6 @@
-<div class="row mt-5">
-  <div class="col-md-8">
-    <h2>Seja bem-vindo ao seu painel, <%= current_user.name %>!</h2>
-    <p class="lead">Aqui você pode explorar nosso acervo de livros e fazer suas reservas.</p>
-  </div>
-</div>
+  <div id="user-home" data-user-name="<%= current_user.name %>"></div>
+
+<%= javascript_pack_tag 'home_user' %>
 
 <div class="row mt-4">
   <div class="col-md-6">

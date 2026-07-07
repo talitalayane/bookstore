@@ -1,12 +1,6 @@
-<div class="row mt-5">
-  <div class="col-md-8">
-    <h2>Bem-vindo ao painel administrativo</h2>
-    <p class="lead">Aqui você pode gerenciar livros, usuários, administradores e reservas.</p>
-  </div>
-  <div class="col-md-4 text-right">
-    <%= link_to "← Voltar à Home", root_path, class: "btn btn-secondary" %>
-  </div>
-</div>
+<div id="admin-home" data-admin-name="<%= current_admin.name %>"></div>
+
+<%= javascript_pack_tag 'home_admin' %>
 
 <div class="row mt-4">
   <div class="col-md-3">

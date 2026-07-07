@@ -34,7 +34,8 @@ module.exports = function(api) {
           modules: false,
           exclude: ['transform-typeof-symbol']
         }
-      ]
+      ],
+      ['@babel/preset-react', { runtime: 'automatic' }]
     ].filter(Boolean),
     plugins: [
       'babel-plugin-macros',

@@ -32,6 +32,9 @@ module Bookstore
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
+    config.x.main_host = ENV.fetch('BOOKSTORE_MAIN_HOST', 'lvh.me')
+    config.x.admin_host = ENV.fetch('BOOKSTORE_ADMIN_HOST', 'admin.lvh.me')
+
     # Don't generate system test files.
     config.generators.system_tests = nil
   end

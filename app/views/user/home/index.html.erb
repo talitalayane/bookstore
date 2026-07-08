@@ -1,24 +1,3 @@
   <div id="user-home" data-user-name="<%= current_user.name %>"></div>
 
 <%= javascript_pack_tag 'home_user' %>
-
-<div class="row mt-4">
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Explorar Livros</h5>
-        <p class="card-text">Navegue por nossa coleção de livros e reserve os que lhe interessam.</p>
-        <%= link_to "Ir para Livros", user_books_path, class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-  <div class="col-md-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Minhas Reservas</h5>
-        <p class="card-text">Consulte o status de todas as suas reservas.</p>
-        <%= link_to "Minhas Reservas", user_reservations_path, class: "btn btn-primary" %>
-      </div>
-    </div>
-  </div>
-</div>

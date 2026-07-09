@@ -1,5 +1,5 @@
 import React from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom'
 import UserHome from '../components/home/UserHome.jsx'
 
 const mountUserHome = () => {
@@ -7,8 +7,7 @@ const mountUserHome = () => {
 
   if (node) {
     const userName = node.getAttribute('data-user-name') || 'usuário'
-    const root = createRoot(node)
-    root.render(<UserHome userName={userName} />)
+     ReactDOM.render(<UserHome userName={userName} />, node)
   }
 }
 

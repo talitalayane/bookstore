@@ -1,5 +1,5 @@
 import React from 'react'
-import HomeCard from './HomeCard'
+import HomeCard from './HomeCard.jsx'
 
 const UserHome = ({ userName }) => {
   const cards = [

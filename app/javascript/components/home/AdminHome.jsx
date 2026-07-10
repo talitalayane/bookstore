@@ -7,28 +7,28 @@ const AdminHome = ({ adminName }) => {
       title: 'Livros',
       description: 'Gerenciar acervo.',
       buttonText: 'Ir para Livros',
-      buttonHref: '/admin/books',
+      buttonHref: '/books',
       buttonClass: 'btn btn-primary btn-sm'
     },
     {
       title: 'Usuários',
       description: 'Gerenciar usuários.',
       buttonText: 'Ir para Usuários',
-      buttonHref: '/admin/users',
+      buttonHref: '/users',
       buttonClass: 'btn btn-primary btn-sm'
     },
     {
       title: 'Reservas',
       description: 'Gerenciar reservas.',
       buttonText: 'Ir para Reservas',
-      buttonHref: '/admin/reservations',
+      buttonHref: '/reservations',
       buttonClass: 'btn btn-primary btn-sm'
     },
     {
       title: 'Admins',
       description: 'Gerenciar administradores.',
       buttonText: 'Ir para Admins',
-      buttonHref: '/admin/admins',
+      buttonHref: '/admins',
       buttonClass: 'btn btn-primary btn-sm'
     }
   ]
@@ -39,9 +39,6 @@ const AdminHome = ({ adminName }) => {
         <div className="col-md-8">
           <h2>Bem-vindo ao painel administrativo, {adminName}!</h2>
           <p className="lead">Aqui você pode gerenciar livros, usuários, administradores e reservas.</p>
-        </div>
-        <div className="col-md-4 text-right">
-          <a href="/" className="btn btn-secondary">← Voltar à Home</a>
         </div>
       </div>
 
